@@ -50,7 +50,7 @@ const registerUser=asyncHandler(async (req,res)=>{
         email:newUser?.email,
         subject:"Please verify your email",
         mailgenContent:emailVerificationMailGen(newUser?.username,
-            `${req.protocol}://${req.get("host")}/api/v1/users/verify-email/${unHashedToken}`
+            `${req.protocol}://${req.get("host")}/api/v1/auth/verify-email/${unHashedToken}`
         )
     })
 
@@ -185,7 +185,7 @@ const resendEmailVerification=asyncHandler(async (req,res)=>{
         email:existingUser?.email,
         subject:"Please verify your email",
         mailgenContent:emailVerificationMailGen(existingUser?.username,
-            `${req.protocol}://${req.get("host")}/api/v1/users/verify-email/${unHashedToken}`
+            `${req.protocol}://${req.get("host")}/api/v1/auth/verify-email/${unHashedToken}`
         )
     })
 
